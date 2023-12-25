@@ -1,0 +1,42 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+    <script>
+        const flashcardsData = {{ flashcards_data | default([]) | tojson }};
+    </script>
+</head>
+<body class="{{ data_type | default('default-page') }}">
+    <div class="main-container">
+        <div class="data-type-selector">
+            <p>Select data type:</p>
+            <form action="{{ url_for('flashcards') }}" method="get">
+                <button type="submit" name="data_type" value="Adjectives">Adjectives</button>
+                <button type="submit" name="data_type" value="Verbs">Verbs</button>
+                <button type="submit" name="data_type" value="Words">Words</button>
+                <button type="submit" name="data_type" value="Numbers">Numbers</button>
+            </form>
+        </div>
+        <div class="toggle-language">
+            <p>Toggle Language:</p>
+            <button onclick="toggleLanguage()">Hindi</button>
+        </div>
+    </div>
+
+    <div class="flashcards-container">
+        <div class="flashcard-container">
+            <div id="flashcard" class="flashcard"></div>
+            <script src="{{ url_for('static', filename='js/flashcards.js') }}" defer></script>
+            <div class="actions">
+                <button onclick="markCorrect()">✔️ Correct</button>
+                <button onclick="markIncorrect()">❌ Incorrect</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
