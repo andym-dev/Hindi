@@ -1,0 +1,6 @@
+pandas
+openpyxl
+os
+flask
+python-dotenv
+random
