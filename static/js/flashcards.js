@@ -1,21 +1,23 @@
 // static/js/flashcards.js
-
 function displayCard() {
     const flashcard = document.getElementById('flashcard');
 
-    // Check if currentIndex is within bounds
     if (currentIndex >= 0 && currentIndex < flashcardsData.length) {
         const currentCard = flashcardsData[currentIndex];
+
+        // Check the language toggle state and update content accordingly
+        const frontContent = isEnglishOnFront ? currentCard['English'] : currentCard['Hindi'];
+        const backContent = isEnglishOnFront ? currentCard['Hindi'] : currentCard['English'];
 
         flashcard.innerHTML = `
             <div class="flashcard ${getCardColor(currentCard['Gender'])}" 
                  data-english="${currentCard['English']}" 
                  data-hindi="${currentCard['Hindi']}">
                 <div class="front">
-                    <p>${currentCard['English']}</p>
+                    <p>${frontContent}</p>
                 </div>
                 <div class="back">
-                    <p>${currentCard['Hindi']}</p>
+                    <p>${backContent}</p>
                 </div>
             </div>`;
         
@@ -24,10 +26,10 @@ function displayCard() {
             this.classList.toggle('flipped');
         });
     } else {
-        // Handle the case where currentIndex is out of bounds
         flashcard.innerHTML = '<p>No more flashcards</p>';
     }
 }
+
 
 
 // Add a function to determine the card color based on gender
@@ -37,7 +39,7 @@ function getCardColor(gender) {
     } else if (gender === 'F') {
         return 'pink';
     } else {
-        return 'yellow';
+        return 'basecardcolour';
     }
 }
 

@@ -1,4 +1,3 @@
-<!-- templates/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,31 +11,37 @@
     </script>
 </head>
 <body class="{{ data_type | default('default-page') }}">
-    <div class="main-container">
-        <div class="data-type-selector">
-            <p>Select data type:</p>
-            <form action="{{ url_for('flashcards') }}" method="get">
-                <button type="submit" name="data_type" value="Adjectives">Adjectives</button>
-                <button type="submit" name="data_type" value="Verbs">Verbs</button>
-                <button type="submit" name="data_type" value="Words">Words</button>
-                <button type="submit" name="data_type" value="Numbers">Numbers</button>
-            </form>
-        </div>
-        <div class="toggle-language">
-            <p>Toggle Language:</p>
-            <button onclick="toggleLanguage()">Hindi</button>
-        </div>
+    <!-- Sidebar for navigation -->
+    <div class="sidebar">
+        <form action="{{ url_for('flashcards') }}" method="get">
+            <button type="submit" name="data_type" value="Adjectives">Adjectives</button>
+            <button type="submit" name="data_type" value="Verbs">Verbs</button>
+            <button type="submit" name="data_type" value="Words">Words</button>
+            <button type="submit" name="data_type" value="Numbers">Numbers</button>
+            <button type="submit" name="data_type" value="Letters">Letters</button>
+            <button type="submit" name="data_type" value="Matras">Matras</button>
+            <button type="submit" name="data_type" value="Barakhadi">Barakhadi</button>
+        </form>
     </div>
 
-    <div class="flashcards-container">
-        <div class="flashcard-container">
-            <div id="flashcard" class="flashcard"></div>
-            <script src="{{ url_for('static', filename='js/flashcards.js') }}" defer></script>
-            <div class="actions">
-                <button onclick="markCorrect()">✔️ Correct</button>
-                <button onclick="markIncorrect()">❌ Incorrect</button>
+    <!-- Main container -->
+    <div class="main-container">
+        <div class="toggle-language">
+            <p>Toggle Language on front:</p>
+            <button onclick="toggleLanguage()">Hindi</button>
+        </div>
+
+        <div class="flashcards-container">
+            <div class="flashcard-container">
+                <div id="flashcard" class="flashcard"></div>
+            </div>
+                <div class="actions">
+                    <button onclick="markCorrect()">✔️ Correct</button>
+                    <button onclick="markIncorrect()">❌ Incorrect</button>
+                
             </div>
         </div>
     </div>
+    <script src="{{ url_for('static', filename='js/flashcards.js') }}" defer></script>
 </body>
 </html>
