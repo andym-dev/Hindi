@@ -39,7 +39,7 @@ function getCardColor(gender) {
     } else if (gender === 'F') {
         return 'pink';
     } else {
-        return 'yellow';
+        return 'basecardcolour';
     }
 }
 
