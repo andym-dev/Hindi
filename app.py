@@ -38,7 +38,7 @@ data_frames = load_data_from_excel(file_path)
 def flashcards():
     data_type = request.args.get('data_type', 'Adjectives')  # Default to 'Adjectives' if not provided
     flashcards_data = data_frames.get(data_type, pd.DataFrame()).to_dict(orient='records')
-    random.shuffle(flashcards_data)
+    # random.shuffle(flashcards_data) #Update this later to success order
     return render_template('index.html', flashcards_data=flashcards_data)
 
 if __name__ == '__main__':
