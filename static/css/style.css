@@ -10,6 +10,40 @@ body {
     height: 100vh;
     margin: 0;
 }
+/* Additions for sidebar and updated flashcard styles */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 200px; /* Adjust as needed */
+    height: 100%;
+    background-color: #333; /* Dark background for the sidebar */
+    padding: 10px;
+}
+
+.sidebar button {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: none;
+    background-color: #444; /* Slightly lighter background for buttons */
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.sidebar button:hover {
+    background-color: #555; /* Hover effect */
+}
+
+.sidebar button img {
+    margin-right: 10px;
+}
 
 .main-container {
     display: flex;
@@ -17,6 +51,7 @@ body {
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
+    margin-left: 220px; /* Adjust based on sidebar width */
 }
 
 .data-type-selector, .toggle-language {
@@ -43,11 +78,12 @@ body {
     perspective: 1000px;
     cursor: pointer;
     transform-style: preserve-3d;
-    transition: transform 0.5s;
+    transition: transform 0.5s, background-color 0.5s; /* Smooth out background color transition */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 
 .front, .back {
@@ -59,6 +95,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: background-color 0.5s; /* Smooth out background color transition */
 }
 
 .back {
