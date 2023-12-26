@@ -12,25 +12,6 @@ document.addEventListener('click', function(event) {
     }
 });
 
-function displayCard() {
-    const flashcards = document.querySelectorAll('.flashcard');
-    flashcards.forEach((card, index) => {
-        card.style.display = index === currentIndex ? 'block' : 'none';
-    });
-}
-
-function markCorrect() {
-    console.log('Marked as Correct');
-    currentIndex = (currentIndex + 1) % flashcards.length;
-    displayCard();
-}
-
-function markIncorrect() {
-    console.log('Marked as Incorrect');
-    currentIndex = (currentIndex + 1) % flashcards.length;
-    displayCard();
-}
-
 function toggleLanguage() {
     isEnglishOnFront = !isEnglishOnFront;
     const flashcards = document.querySelectorAll('.flashcard');
@@ -49,16 +30,5 @@ function toggleLanguage() {
     });
 
     const toggleButton = document.querySelector('.toggle-language button');
-    toggleButton.textContent = isEnglishOnFront ? 'English' : 'Hindi';
+    toggleButton.textContent = isEnglishOnFront ? 'Hindi' : 'English';
 }
-
-
-// Optional: Add a click event listener to reset flipped cards on the document
-document.addEventListener('click', function(event) {
-    const clickedElement = event.target;
-    const isResetClick = clickedElement.classList.contains('reset-flipped');
-
-    if (isResetClick) {
-        // Reset flipped cards logic here
-    }
-});
