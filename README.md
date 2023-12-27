@@ -4,7 +4,7 @@ https://github.com/andym-dev/Hindi
 
 ## Visual bugs to fix
 
-- [x] Update flashcard visuals
+- [ ] Update flashcard visuals
 - [ ] Remove flashing when cards are clicked and when data types selected
 - [ ] Improve CSS
 
